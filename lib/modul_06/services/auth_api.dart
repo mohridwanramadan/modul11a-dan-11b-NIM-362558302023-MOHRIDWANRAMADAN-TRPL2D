@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../models/sesi_pengguna.dart';
 
 class AuthException implements Exception {
@@ -9,22 +11,29 @@ class AuthException implements Exception {
 }
 
 class AuthApi {
+  // TAMBAHAN 1: Variabel penghitung statis
+  static int jumlahPanggilanMasuk = 0;
+
   static const String emailDemo = 'student@trpl.test';
   static const String sandiDemo = 'belajar123';
   static const String emailTerkunci = 'terkunci@trpl.test';
   static const String emailServerGangguan = 'gangguan@trpl.test';
-
-
   static const String emailBelumAktivasi = 'belumaktif@trpl.test';
 
   final Duration tunda;
-  const AuthApi({this.tunda = const Duration(milliseconds: 700)});
+  const AuthApi({this.tunda = const Duration(milliseconds: 900)});
 
   Future<SesiPengguna> masuk({
     required String email,
     required String sandi,
     Duration masaBerlaku = const Duration(hours: 2),
   }) async {
+    // TAMBAHAN 2: Hitung dan catat SEBELUM await
+    jumlahPanggilanMasuk++;
+    debugPrint(
+      '>>> [KELOMPOK 5] API masuk() DIPANGGIL. Total: $jumlahPanggilanMasuk',
+    );
+
     await Future<void>.delayed(tunda);
     final String emailBersih = email.trim().toLowerCase();
 
@@ -37,9 +46,11 @@ class AuthApi {
     }
 
     if (emailBersih == emailServerGangguan) {
-      throw const AuthException('Server sedang tidak dapat dihubungi.', kode: 503);
+      throw const AuthException(
+        'Server sedang tidak dapat dihubungi.',
+        kode: 503,
+      );
     }
-
 
     if (emailBersih == emailBelumAktivasi) {
       throw const AuthException(

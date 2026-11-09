@@ -7,8 +7,8 @@ class HeaderBanner extends StatelessWidget {
 
   const HeaderBanner({
     super.key,
-    this.studentName = 'Mohammad Rizky Arief Ramadhan',
-    this.nim = '362558302093',
+    this.studentName = 'Moh Ridwan Ramadan ',
+    this.nim = '362558302023',
   });
 
   @override
@@ -25,7 +25,7 @@ class HeaderBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF0284C7).withOpacity(0.3),
+            color: const Color(0xFF0284C7).withAlpha(77),
             blurRadius: 12,
             offset: const Offset(0, 6),
           ),
@@ -38,17 +38,28 @@ class HeaderBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withAlpha(51),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Text(
                   'Semester 5 (2026/2027)',
-                  style: TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-              const Icon(Icons.notifications_active_outlined, color: Colors.white, size: 20),
+              const Icon(
+                Icons.notifications_active_outlined,
+                color: Colors.white,
+                size: 20,
+              ),
             ],
           ),
           const SizedBox(height: 14),
@@ -59,7 +70,11 @@ class HeaderBanner extends StatelessWidget {
           const SizedBox(height: 4),
           const Text(
             'Dashboard Akademik & Proyek',
-            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 16),
           // Wrap mencegah overflow pada layar sempit atau font besar.
@@ -90,7 +105,7 @@ class _StatPill extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.2),
+        color: Colors.black.withAlpha(51),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -98,7 +113,14 @@ class _StatPill extends StatelessWidget {
         children: [
           Icon(icon, size: 14, color: Colors.white),
           const SizedBox(width: 4),
-          Text(label, style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w500)),
+          Text(
+            label,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ],
       ),
     );
